@@ -4,6 +4,7 @@ import httpStatus from 'http-status'
 import globalErrorHandler from './app/middlewares/globalErrorHandler'
 import usersRouter from './app/modules/users/users.route'
 import cowsRouter from './app/modules/cows/cows.route'
+import odersRouter from './app/modules/orders/orders.route'
 
 const app: Application = express()
 
@@ -14,10 +15,13 @@ app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
 
 //user api
-app.use('/api/v1/', usersRouter)
+app.use('/api/v1/', usersRouter);
 
 //cows api
-app.use('/api/v1/cows/', cowsRouter)
+app.use('/api/v1/cows/', cowsRouter);
+
+//order api
+app.use('/api/v1/orders/', odersRouter);
 
 app.get('/', async (req: Request, res: Response) => {
   res.send('Database Connected Successfully')

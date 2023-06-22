@@ -19,9 +19,6 @@ const orderSchema = new Schema<IOrder>(
       ref: 'User',
       required: true,
     },
-  },
-  {
-    timestamps: true,
   }
 )
 
